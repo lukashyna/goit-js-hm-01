@@ -1,10 +1,10 @@
-const credits = 23580;
-const pricePerDroid = 3000;
+let credits = 23580;
+let pricePerDroid = 3000;
 let totalPrice;
 let message;
 let invoice = prompt(`Количество выбранного товара для оформления заявки: `);
+invoice = Number(invoice);
 if (invoice > 0) {
-  invoice = Number(invoice);
   totalPrice = invoice * pricePerDroid;
 }
 if (totalPrice > credits) {
