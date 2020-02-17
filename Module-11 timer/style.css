@@ -1,0 +1,43 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  text-shadow: 0 -1px 0 #000;
+  font-family: 'Roboto', sans-serif;
+}
+
+.timer {
+  display: inline-flex;
+  width: 500px;
+  flex-direction: row;
+  padding: 30px;
+  text-align: center;
+  color: #212121;
+  border-radius: 2px;
+}
+
+.field {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100px;
+  justify-content: space-between;
+  text-transform: uppercase;
+  color: #000;
+  padding: 10px 20px;
+}
+
+.value {
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+
+.label {
+  font-size: 14px;
+}

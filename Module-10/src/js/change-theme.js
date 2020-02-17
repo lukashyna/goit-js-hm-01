@@ -24,4 +24,6 @@ function switchCheckbox() {
     setTheme();
   }
 }
+setTheme();
+
 switchTheme.addEventListener('change', switchCheckbox);
