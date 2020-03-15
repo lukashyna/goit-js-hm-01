@@ -5,9 +5,11 @@ const refs = {
   searchForm: document.querySelector('#search-form'),
   articleList: document.querySelector('.gallery'),
   loadMoreBtn: document.querySelector('button[data-action="load-more"]'),
+  toTopBtn: document.querySelector('button[data-action="to-top"]'),
 };
 refs.searchForm.addEventListener('submit', searchFormSubmitHandler);
 refs.loadMoreBtn.addEventListener('click', loadMoreBtnHandler);
+refs.toTopBtn.addEventListener('click', toTopBtnHandler);
 function searchFormSubmitHandler(e) {
   e.preventDefault();
   const form = e.currentTarget;
@@ -17,6 +19,8 @@ function searchFormSubmitHandler(e) {
   apiService.searchQuery = input.value;
   fetchArticles();
   input.value = '';
+  refs.loadMoreBtn.classList.remove('visually-hidden');
+  refs.toTopBtn.classList.remove('visually-hidden');
 }
 function loadMoreBtnHandler() {
   fetchArticles();
@@ -31,6 +35,14 @@ function fetchArticles() {
       console.log(error);
     });
 }
+function toTopBtnHandler(event) {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+  event.currentTarget.blur();
+}
+
 function isertListItems(items) {
   const markup = articleListItemsTemplate(items);
   refs.articleList.insertAdjacentHTML('beforeend', markup);
